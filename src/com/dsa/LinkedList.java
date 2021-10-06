@@ -18,15 +18,10 @@ public class LinkedList {
     public void insertFront( int data)
     {
         Node newNode=new Node(data);
-        if (head==null)
-        {
-            head=newNode;
+        if (head != null) {
+            newNode.next = head;
         }
-        else
-        {
-            newNode.next=head;
-            head=newNode;
-        }
+        head=newNode;
     }
     public void deleteFront()
     {
@@ -45,5 +40,31 @@ public class LinkedList {
             System.out.println(current.item);
             current=current.next;
         }
+    }
+    public void insertBack(int data)
+    {
+        Node newNode=new Node(data);
+        if(head==null)
+            head=newNode;
+        else
+        {
+            Node current =head;
+            while(current.next!=null)
+                current=current.next;
+            current.next=newNode;
+        }
+    }
+    public void deleteBack()
+    {
+       if(head==null)
+           return;
+       Node previous=head;
+       Node last=head.next;
+
+       while(last.next!=null) {
+           previous = last;
+           last = last.next;
+       }
+       previous.next=null;
     }
 }
