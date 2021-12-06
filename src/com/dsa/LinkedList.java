@@ -11,6 +11,7 @@ public class LinkedList {
         }
     }
     Node head;
+    Node tail;
     public LinkedList()
     {
         head=null;
@@ -67,4 +68,27 @@ public class LinkedList {
        }
        previous.next=null;
     }
+    public boolean Find(int a)
+    {
+        if (head==null)
+            return false;
+        Node current=head;
+        while(current!=null&& current.item!=a)
+            current=current.next;
+        if(current==null)
+            return false;
+        else
+            return true;
+    }
+    /*This method reverses the linked list it is called on
+    For example if LinkedList l is 2->3->4->5
+    After calling l.reverse(), the list becomes 5->4->3->2
+     */
+    public void reverse()
+    {
+        //Your code goes here
+    }
+
+
+
 }
